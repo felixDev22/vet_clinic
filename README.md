@@ -56,9 +56,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- Used primary key & foreign key mechanisms for joining table
+- Query multiple tables.
+- Data info for vet_clinic - having animals names, species & owners details
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
