@@ -2,7 +2,7 @@
 
 CREATE TABLE animals (
     id SERIAL PRIMARY KEY NOT NULL,
-    animal_name varchar(100),
+    name varchar(100),
     date_of_birth date NOT NULL,
     escape_attempts integer,
     neutered boolean NOT NULL,
@@ -25,6 +25,41 @@ CREATE TABLE species (
  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
  name VARCHAR(50)
 );
+
+
+-- Remove column species
+ALTER TABLE animals DROP COLUMN species;
+
+-- Add column species_id which is a foreign key referencing species table
+ALTER TABLE animals ADD COLUMN species_id INTEGER;
+ALTER TABLE animals ADD CONSTRAINT fk_species_id FOREIGN KEY (species_id) REFERENCES species(id);
+
+-- Add column owner_id which is a foreign key referencing the owners table
+ALTER TABLE animals ADD COLUMN owner_id INTEGER;
+ALTER TABLE animals ADD CONSTRAINT fk_owner_id FOREIGN KEY (owner_id) REFERENCES owners(id);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
