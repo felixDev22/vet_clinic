@@ -9,6 +9,7 @@ CREATE TABLE animals (
     weight_per_kg decimal NOT NULL
 );
 
+
 /* Altered animals table and add new column*/
 
 ALTER TABLE animals ADD COLUMN species varchar;
@@ -39,9 +40,33 @@ ALTER TABLE animals ADD COLUMN owner_id INTEGER;
 ALTER TABLE animals ADD CONSTRAINT fk_owner_id FOREIGN KEY (owner_id) REFERENCES owners(id);
 
 
+-- Create vet table
+CREATE TABLE vets (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name varchar(100),
+    age INT NOT NULL,
+    date_of_graduation date NOT NULL
+);
+
+-- Create vet Specialization table
+CREATE TABLE specializations (
+ id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+ vets_id INT,
+ species_id INT,
+ CONSTRAINT vet_fk FOREIGN KEY(vets_id) REFERENCES vets(id),
+ CONSTRAINT species_fk FOREIGN KEY(species_id) REFERENCES species(id)
+);
 
 
-
+-- Create vet Visits table
+  CREATE TABLE visits (
+ id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+ animals_id INT,
+ vets_id INT,
+ date_of_visit DATE,
+ CONSTRAINT vet_fk FOREIGN KEY(vets_id) REFERENCES vets(id),
+ CONSTRAINT animals_fk FOREIGN KEY(animals_id) REFERENCES animals(id)
+);
 
 
 
