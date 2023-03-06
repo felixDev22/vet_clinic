@@ -69,23 +69,9 @@ CREATE TABLE specializations (
 );
 
 
+---Audit performance
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
 
 -- Alter Animals Table
