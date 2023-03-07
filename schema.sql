@@ -69,28 +69,23 @@ CREATE TABLE specializations (
 );
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -- Alter Animals Table
 ALTER TABLE animals ADD species_id INT;
 ALTER TABLE animals DROP COLUMN species;
 ALTER TABLE animals ADD CONSTRAINT fk_name FOREIGN KEY(species_id) REFERENCES species(id);
 ALTER TABLE animals ADD owner_id INT;
 ALTER TABLE animals ADD CONSTRAINT fk_name2 FOREIGN KEY(owner_id) REFERENCES owners(id);
+
+---Audit performance
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+
+-- adding index for fast data retreive
+
+-- CREATE INDEX animals_id ON visits(animals_id ASC);
+
+-- CREATE INDEX vets_id ON visits(vets_id ASC);
+
+-- CREATE INDEX owners_id ON owners(email ASC);
+ 
