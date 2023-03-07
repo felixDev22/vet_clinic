@@ -83,9 +83,8 @@ ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
 -- adding index for fast data retreive
 
--- CREATE INDEX animals_id ON visits(animals_id ASC);
+CREATE INDEX animals_id ON visits(animals_id ASC);
 
--- CREATE INDEX vets_id ON visits(vets_id ASC);
+CREATE INDEX vets_id ON visits(vets_id ASC);
 
--- CREATE INDEX owners_id ON owners(email ASC);
- 
+CREATE INDEX owners_id ON owners(email ASC);
